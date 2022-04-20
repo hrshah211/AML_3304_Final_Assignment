@@ -12,4 +12,5 @@ jobs:
             echo 'This is the delivery pipeline'
       - run:
           name: Firebase Deploy
-          command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+          command: sudo npm install -g firebase-tools
+                  firebase deploy --token=$FIREBASE_TOKEN
