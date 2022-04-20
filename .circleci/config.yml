@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  firebase-deploy: azdevs/firebase-deploy@1.0.0
 jobs:
   build:
     docker:
@@ -9,9 +11,5 @@ jobs:
           command:
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
-    deployment:
-      production:
-        branch: master
-          commands:
-            npm install -g firebase-tools
-            firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+            - npm install -g firebase-tools
+            - firebase deploy --token=$FIREBASE_TOKEN --non-interactive
