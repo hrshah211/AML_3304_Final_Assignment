@@ -6,6 +6,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
-    steps:
-      - firebase-deploy/deploy: 
-          token: '1//0dIa3lM2X3n44CgYIARAAGA0SNwF-L9Ir_3wBTaRS_E-6B_7FeUwojnzhLAL809rZyDGZOrpedwe7xKehNrwc-9ve-CtPqAwlb10'
+    steps:      
+      - run:
+          name: Firebase Deploy
+          command: 
+            firebase deploy --token=$FIREBASE_TOKEN
