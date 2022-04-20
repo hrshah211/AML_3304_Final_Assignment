@@ -1,17 +1,11 @@
 # CircleCI Firebase Deployment Config
 version: 2
+orbs:
+  firebase-deploy: azdevs/firebase-deploy@1.0.0
 jobs:
   build:
     docker:
       - image: circleci/node:10
     steps:
-      - run:
-          name: The First Step
-          command:
-            echo 'Firebase Deploymnt'
-            echo 'This is the delivery pipeline'
-      - run:
-          name: Firebase Deploy
-          command: 
-            sudo npm install -g firebase-tools
-            firebase deploy --token=$FIREBASE_TOKEN
+      - firebase-deploy/deploy: 
+          token: '1//0dIa3lM2X3n44CgYIARAAGA0SNwF-L9Ir_3wBTaRS_E-6B_7FeUwojnzhLAL809rZyDGZOrpedwe7xKehNrwc-9ve-CtPqAwlb10'
